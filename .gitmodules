@@ -1,0 +1,3 @@
+[submodule "Plugins/MontageGraph"]
+	path = Plugins/MontageGraph
+	url = https://github.com/timofeji/MontageGraph
