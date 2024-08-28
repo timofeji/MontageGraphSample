@@ -4,4 +4,4 @@
 
 #include "CoreMinimal.h"
 
-DECLARE_LOG_CATEGORY_EXTERN(LogActionGraphSample, Log, All);
+DECLARE_LOG_CATEGORY_EXTERN(LogMontageGraphSample, Log, All);

@@ -3,13 +3,13 @@
 using UnrealBuildTool;
 using System.Collections.Generic;
 
-public class ActionGraphSampleEditorTarget : TargetRules
+public class MontageGraphSampleTarget : TargetRules
 {
-	public ActionGraphSampleEditorTarget(TargetInfo Target) : base(Target)
+	public MontageGraphSampleTarget(TargetInfo Target) : base(Target)
 	{
-		Type = TargetType.Editor;
+		Type = TargetType.Game;
 		DefaultBuildSettings = BuildSettingsVersion.V5;
 		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_4;
-		ExtraModuleNames.Add("ActionGraphSample");
+		ExtraModuleNames.Add("MontageGraphSampleTarget");
 	}
 }

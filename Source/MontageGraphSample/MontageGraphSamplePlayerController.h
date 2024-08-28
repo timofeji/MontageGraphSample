@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "Templates/SubclassOf.h"
 #include "GameFramework/PlayerController.h"
-#include "ActionGraphSamplePlayerController.generated.h"
+#include "MontageGraphSamplePlayerController.generated.h"
 
 /** Forward declaration to improve compiling times */
 class UNiagaraSystem;
@@ -15,12 +15,12 @@ class UInputAction;
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
 UCLASS()
-class AActionGraphSamplePlayerController : public APlayerController
+class AMontageGraphSamplePlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
 public:
-	AActionGraphSamplePlayerController();
+	AMontageGraphSamplePlayerController();
 
 	/** Time Threshold to know if it was a short press */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input)

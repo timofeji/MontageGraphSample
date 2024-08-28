@@ -1,11 +1,11 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "ActionGraphSamplePlayerController.h"
+#include "MontageGraphSamplePlayerController.h"
 #include "GameFramework/Pawn.h"
 #include "Blueprint/AIBlueprintHelperLibrary.h"
 #include "NiagaraSystem.h"
 #include "NiagaraFunctionLibrary.h"
-#include "ActionGraphSampleCharacter.h"
+#include "MontageGraphSampleCharacter.h"
 #include "Engine/World.h"
 #include "EnhancedInputComponent.h"
 #include "InputActionValue.h"
@@ -14,7 +14,7 @@
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
-AActionGraphSamplePlayerController::AActionGraphSamplePlayerController()
+AMontageGraphSamplePlayerController::AMontageGraphSamplePlayerController()
 {
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
@@ -22,13 +22,13 @@ AActionGraphSamplePlayerController::AActionGraphSamplePlayerController()
 	FollowTime = 0.f;
 }
 
-void AActionGraphSamplePlayerController::BeginPlay()
+void AMontageGraphSamplePlayerController::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
 }
 
-void AActionGraphSamplePlayerController::SetupInputComponent()
+void AMontageGraphSamplePlayerController::SetupInputComponent()
 {
 	// set up gameplay key bindings
 	Super::SetupInputComponent();
@@ -43,16 +43,16 @@ void AActionGraphSamplePlayerController::SetupInputComponent()
 	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(InputComponent))
 	{
 		// Setup mouse input events
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &AActionGraphSamplePlayerController::OnInputStarted);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Triggered, this, &AActionGraphSamplePlayerController::OnSetDestinationTriggered);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &AActionGraphSamplePlayerController::OnSetDestinationReleased);
-		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Canceled, this, &AActionGraphSamplePlayerController::OnSetDestinationReleased);
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Started, this, &AMontageGraphSamplePlayerController::OnInputStarted);
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Triggered, this, &AMontageGraphSamplePlayerController::OnSetDestinationTriggered);
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Completed, this, &AMontageGraphSamplePlayerController::OnSetDestinationReleased);
+		EnhancedInputComponent->BindAction(SetDestinationClickAction, ETriggerEvent::Canceled, this, &AMontageGraphSamplePlayerController::OnSetDestinationReleased);
 
 		// Setup touch input events
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Started, this, &AActionGraphSamplePlayerController::OnInputStarted);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Triggered, this, &AActionGraphSamplePlayerController::OnTouchTriggered);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Completed, this, &AActionGraphSamplePlayerController::OnTouchReleased);
-		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Canceled, this, &AActionGraphSamplePlayerController::OnTouchReleased);
+		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Started, this, &AMontageGraphSamplePlayerController::OnInputStarted);
+		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Triggered, this, &AMontageGraphSamplePlayerController::OnTouchTriggered);
+		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Completed, this, &AMontageGraphSamplePlayerController::OnTouchReleased);
+		EnhancedInputComponent->BindAction(SetDestinationTouchAction, ETriggerEvent::Canceled, this, &AMontageGraphSamplePlayerController::OnTouchReleased);
 	}
 	else
 	{
@@ -60,13 +60,13 @@ void AActionGraphSamplePlayerController::SetupInputComponent()
 	}
 }
 
-void AActionGraphSamplePlayerController::OnInputStarted()
+void AMontageGraphSamplePlayerController::OnInputStarted()
 {
 	StopMovement();
 }
 
 // Triggered every frame when the input is held down
-void AActionGraphSamplePlayerController::OnSetDestinationTriggered()
+void AMontageGraphSamplePlayerController::OnSetDestinationTriggered()
 {
 	// We flag that the input is being pressed
 	FollowTime += GetWorld()->GetDeltaSeconds();
@@ -98,7 +98,7 @@ void AActionGraphSamplePlayerController::OnSetDestinationTriggered()
 	}
 }
 
-void AActionGraphSamplePlayerController::OnSetDestinationReleased()
+void AMontageGraphSamplePlayerController::OnSetDestinationReleased()
 {
 	// If it was a short press
 	if (FollowTime <= ShortPressThreshold)
@@ -112,13 +112,13 @@ void AActionGraphSamplePlayerController::OnSetDestinationReleased()
 }
 
 // Triggered every frame when the input is held down
-void AActionGraphSamplePlayerController::OnTouchTriggered()
+void AMontageGraphSamplePlayerController::OnTouchTriggered()
 {
 	bIsTouch = true;
 	OnSetDestinationTriggered();
 }
 
-void AActionGraphSamplePlayerController::OnTouchReleased()
+void AMontageGraphSamplePlayerController::OnTouchReleased()
 {
 	bIsTouch = false;
 	OnSetDestinationReleased();

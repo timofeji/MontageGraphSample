@@ -4,15 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
-#include "ActionGraphSampleGameMode.generated.h"
+#include "MontageGraphSampleGameMode.generated.h"
 
 UCLASS(minimalapi)
-class AActionGraphSampleGameMode : public AGameModeBase
+class AMontageGraphSampleGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 
 public:
-	AActionGraphSampleGameMode();
+	AMontageGraphSampleGameMode();
 };
 
 

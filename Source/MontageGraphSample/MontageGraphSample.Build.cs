@@ -2,9 +2,9 @@
 
 using UnrealBuildTool;
 
-public class ActionGraphSample : ModuleRules
+public class MontageGraphSample : ModuleRules
 {
-	public ActionGraphSample(ReadOnlyTargetRules Target) : base(Target)
+	public MontageGraphSample(ReadOnlyTargetRules Target) : base(Target)
 	{
 		PCHUsage = PCHUsageMode.Default;
 

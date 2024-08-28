@@ -1,14 +1,14 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
-#include "ActionGraphSampleGameMode.h"
-#include "ActionGraphSamplePlayerController.h"
-#include "ActionGraphSampleCharacter.h"
+#include "MontageGraphSampleGameMode.h"
+#include "MontageGraphSamplePlayerController.h"
+#include "MontageGraphSampleCharacter.h"
 #include "UObject/ConstructorHelpers.h"
 
-AActionGraphSampleGameMode::AActionGraphSampleGameMode()
+AMontageGraphSampleGameMode::AMontageGraphSampleGameMode()
 {
 	// use our custom PlayerController class
-	PlayerControllerClass = AActionGraphSamplePlayerController::StaticClass();
+	PlayerControllerClass = AMontageGraphSamplePlayerController::StaticClass();
 
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnBPClass(TEXT("/Game/TopDown/Blueprints/BP_TopDownCharacter"));

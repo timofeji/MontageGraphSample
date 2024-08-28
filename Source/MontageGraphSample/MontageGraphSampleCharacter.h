@@ -4,15 +4,15 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
-#include "ActionGraphSampleCharacter.generated.h"
+#include "MontageGraphSampleCharacter.generated.h"
 
 UCLASS(Blueprintable)
-class AActionGraphSampleCharacter : public ACharacter
+class AMontageGraphSampleCharacter : public ACharacter
 {
 	GENERATED_BODY()
 
 public:
-	AActionGraphSampleCharacter();
+	AMontageGraphSampleCharacter();
 
 	// Called every frame.
 	virtual void Tick(float DeltaSeconds) override;
