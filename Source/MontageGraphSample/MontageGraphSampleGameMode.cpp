@@ -1,4 +1,4 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
+// Created by Timofej Jermolaev, All rights reserved. 
 
 #include "MontageGraphSampleGameMode.h"
 #include "MontageGraphSamplePlayerController.h"
